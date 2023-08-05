@@ -9,6 +9,8 @@ in the source distribution for its full text.
 #include "MetersPanel.h"
 
 #include "CPUMeter.h"
+#include "CpuFreqMeter.h"
+#include "CpuTempMeter.h"
 #include "Header.h"
 #include "ListItem.h"
 #include "Platform.h"
@@ -100,6 +102,8 @@ PanelClass AvailableMetersPanel_class = {
 };
 
 AvailableMetersPanel* AvailableMetersPanel_new(Settings* settings, Header* header, Panel* leftMeters, Panel* rightMeters, ScreenManager* scr, ProcessList* pl) {
+   int i;
+    
    AvailableMetersPanel* this = AllocThis(AvailableMetersPanel);
    Panel* super = (Panel*) this;
    FunctionBar* fuBar = FunctionBar_newEnterEsc("Add   ", "Done   ");
@@ -114,7 +118,7 @@ AvailableMetersPanel* AvailableMetersPanel_new(Settings* settings, Header* heade
    Panel_setHeader(super, "Available meters");
    // Platform_meterTypes[0] should be always (&CPUMeter_class), which we will
    // handle separately in the code below.
-   for (int i = 1; Platform_meterTypes[i]; i++) {
+   for (i = 1; Platform_meterTypes[i]; i++) {
       MeterClass* type = Platform_meterTypes[i];
       assert(type != &CPUMeter_class);
       const char* label = type->description ? type->description : type->uiName;
@@ -125,7 +129,7 @@ AvailableMetersPanel* AvailableMetersPanel_new(Settings* settings, Header* heade
    int cpus = pl->cpuCount;
    if (cpus > 1) {
       Panel_add(super, (Object*) ListItem_new("CPU average", 0));
-      for (int i = 1; i <= cpus; i++) {
+      for (i = 1; i <= cpus; i++) {
          char buffer[50];
          xSnprintf(buffer, 50, "%s %d", type->uiName, i);
          Panel_add(super, (Object*) ListItem_new(buffer, i));

@@ -50,6 +50,28 @@ typedef struct Settings_ {
    bool accountGuestInCPUMeter;
    bool headerMargin;
 
+   char CpuFreq_handler[256]; 
+   char CpuTemp_handler[256]; 
+   char CpuVCore_l_handler[256];
+   char CpuVCore_b_handler[256];
+   
+   char GpuVCore_handler[256];
+   char GpuTemp_handler[256];
+   
+   char BoardName[128];
+   char KernelVersionFull[256];
+   char KernelVersionShort[64];
+   
+   char IP_wlan0[32];
+   char IP_wlan1[32];
+   char IP_eth0[32];
+   char IP_eth1[32];
+   
+   char eth0_alias[32];
+   char eth1_alias[32];
+   char wlan0_alias[32];
+   char wlan1_alias[32];
+
    bool changed;
 } Settings;
 

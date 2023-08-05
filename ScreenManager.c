@@ -130,6 +130,7 @@ static void checkRecalculation(ScreenManager* this, double* oldTime, int* sortTi
    if (newTime < *oldTime) *rescan = true; // clock was adjusted?
    if (*rescan) {
       *oldTime = newTime;
+      Header_draw(this->header);
       ProcessList_scan(pl);
       if (*sortTimeout == 0 || this->settings->treeView) {
          ProcessList_sort(pl);
@@ -139,7 +140,7 @@ static void checkRecalculation(ScreenManager* this, double* oldTime, int* sortTi
    }
    if (*redraw) {
       ProcessList_rebuildPanel(pl);
-      Header_draw(this->header);
+      // Header_draw(this->header);
    }
    *rescan = false;
 }

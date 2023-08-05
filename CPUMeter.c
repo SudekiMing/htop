@@ -6,6 +6,7 @@ in the source distribution for its full text.
 */
 
 #include "CPUMeter.h"
+#include "CpuFreqMeter.h"
 
 #include "CRT.h"
 #include "Settings.h"

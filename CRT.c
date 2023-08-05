@@ -128,6 +128,20 @@ typedef enum ColorElements_ {
    CPU_SOFTIRQ,
    CPU_STEAL,
    CPU_GUEST,
+   CPU_TEMP,
+   CPU_FREQ,
+   CPU_VCORE,
+   GPU_TEMP,
+   ETH0_INTERFACE,
+   ETH1_INTERFACE,
+   WLAN0_INTERFACE,
+   WLAN1_INTERFACE,    
+   KERNEL_VERSION,
+   DISTRO_VERSION,
+   OS_VERSION,
+   ARMBIAN_VERSION,
+   ETH0_STATS,
+   ETH1_STATS,
    LAST_COLORELEMENT
 } ColorElements;
 
@@ -232,6 +246,18 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [CPU_SOFTIRQ] = ColorPair(Magenta,Black),
       [CPU_STEAL] = ColorPair(Cyan,Black),
       [CPU_GUEST] = ColorPair(Cyan,Black),
+      [CPU_FREQ] = A_BOLD | ColorPair(Yellow,Black),
+      [CPU_TEMP] = A_BOLD | ColorPair(Red,Black),
+      [CPU_VCORE] = A_BOLD | ColorPair(Yellow,Black),
+      [GPU_TEMP] = ColorPair(Cyan,Black),
+      [ETH0_INTERFACE] = A_BOLD | ColorPair(Cyan,Black),
+      [ETH1_INTERFACE] = A_BOLD | ColorPair(Cyan,Black),
+      [WLAN0_INTERFACE] = A_BOLD | ColorPair(Cyan,Black),
+      [WLAN1_INTERFACE] = A_BOLD | ColorPair(Cyan,Black),
+      [KERNEL_VERSION] = A_BOLD | ColorPair(Cyan,Black),
+      [DISTRO_VERSION] = A_BOLD | ColorPair(Cyan,Black),
+      [OS_VERSION] = A_BOLD | ColorPair(Cyan,Black),
+      [ARMBIAN_VERSION] = A_BOLD | ColorPair(Cyan,Black),
    },
    [COLORSCHEME_MONOCHROME] = {
       [RESET_COLOR] = A_NORMAL,
@@ -291,6 +317,18 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [CPU_SOFTIRQ] = A_BOLD,
       [CPU_STEAL] = A_REVERSE,
       [CPU_GUEST] = A_REVERSE,
+      [CPU_FREQ] = A_BOLD,
+      [CPU_TEMP] = A_BOLD,
+      [CPU_VCORE] = A_BOLD,
+      [GPU_TEMP] = A_BOLD,
+      [ETH0_INTERFACE] = A_BOLD,
+      [ETH1_INTERFACE] = A_BOLD,
+      [WLAN0_INTERFACE] = A_BOLD,
+      [WLAN1_INTERFACE] = A_BOLD,
+      [KERNEL_VERSION] = A_BOLD,
+      [DISTRO_VERSION] = A_BOLD,
+      [OS_VERSION] = A_BOLD,
+      [ARMBIAN_VERSION] = A_BOLD,      
    },
    [COLORSCHEME_BLACKONWHITE] = {
       [RESET_COLOR] = ColorPair(Black,White),
@@ -350,6 +388,18 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [CPU_SOFTIRQ] = ColorPair(Blue,White),
       [CPU_STEAL] = ColorPair(Cyan,White),
       [CPU_GUEST] = ColorPair(Cyan,White),
+      [CPU_FREQ] = A_BOLD | ColorPair(Yellow,White),
+      [CPU_TEMP] = A_BOLD | ColorPair(Yellow,White),
+      [CPU_VCORE] = A_BOLD | ColorPair(Yellow,White),
+      [GPU_TEMP] = A_BOLD | ColorPair(Yellow,White),
+      [ETH0_INTERFACE] = A_BOLD | ColorPair(Yellow,White),
+      [ETH1_INTERFACE] = A_BOLD | ColorPair(Yellow,White),
+      [WLAN0_INTERFACE] = A_BOLD | ColorPair(Yellow,White),
+      [WLAN1_INTERFACE] = A_BOLD | ColorPair(Yellow,White),
+      [KERNEL_VERSION] = A_BOLD | ColorPair(Yellow,White),
+      [DISTRO_VERSION] = A_BOLD | ColorPair(Yellow,White),
+      [OS_VERSION] = A_BOLD | ColorPair(Yellow,White),
+      [ARMBIAN_VERSION] = A_BOLD | ColorPair(Yellow,White),      
    },
    [COLORSCHEME_LIGHTTERMINAL] = {
       [RESET_COLOR] = ColorPair(Black,Black),
@@ -409,6 +459,18 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [CPU_SOFTIRQ] = ColorPair(Blue,Black),
       [CPU_STEAL] = ColorPair(Black,Black),
       [CPU_GUEST] = ColorPair(Black,Black),
+      [CPU_FREQ] = A_BOLD | ColorPair(Yellow,Black),
+      [CPU_TEMP] = A_BOLD | ColorPair(Yellow,Black),
+      [CPU_VCORE] = A_BOLD | ColorPair(Yellow,Black),
+      [GPU_TEMP] = A_BOLD | ColorPair(Yellow,Black),
+      [ETH0_INTERFACE] = A_BOLD | ColorPair(Yellow,Black),
+      [ETH1_INTERFACE] = A_BOLD | ColorPair(Yellow,Black),
+      [WLAN0_INTERFACE] = A_BOLD | ColorPair(Yellow,Black),
+      [WLAN1_INTERFACE] = A_BOLD | ColorPair(Yellow,Black),
+      [KERNEL_VERSION] = A_BOLD | ColorPair(Yellow,Black),
+      [DISTRO_VERSION] = A_BOLD | ColorPair(Yellow,Black),
+      [OS_VERSION] = A_BOLD | ColorPair(Yellow,Black),
+      [ARMBIAN_VERSION] = A_BOLD | ColorPair(Yellow,Black),      
    },
    [COLORSCHEME_MIDNIGHT] = {
       [RESET_COLOR] = ColorPair(White,Blue),
@@ -468,6 +530,18 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [CPU_SOFTIRQ] = ColorPair(Black,Blue),
       [CPU_STEAL] = ColorPair(White,Blue),
       [CPU_GUEST] = ColorPair(White,Blue),
+      [CPU_FREQ] = A_BOLD | ColorPair(Red,Black),
+      [CPU_TEMP] = A_BOLD | ColorPair(Red,Black),
+      [CPU_VCORE] = A_BOLD | ColorPair(Yellow,Black),
+      [GPU_TEMP] = A_BOLD | ColorPair(Yellow,Black),
+      [ETH0_INTERFACE] = A_BOLD | ColorPair(Cyan,Blue),
+      [ETH1_INTERFACE] = A_BOLD | ColorPair(Cyan,Blue),
+      [WLAN0_INTERFACE] = A_BOLD | ColorPair(Cyan,Blue),
+      [WLAN1_INTERFACE] = A_BOLD | ColorPair(Cyan,Blue),
+      [KERNEL_VERSION] = A_BOLD | ColorPair(Cyan,Black),
+      [DISTRO_VERSION] = A_BOLD | ColorPair(Cyan,Black),
+      [OS_VERSION] = A_BOLD | ColorPair(Cyan,Black),
+      [ARMBIAN_VERSION] = A_BOLD | ColorPair(Cyan,Black),      
    },
    [COLORSCHEME_BLACKNIGHT] = {
       [RESET_COLOR] = ColorPair(Cyan,Black),
@@ -527,6 +601,18 @@ int CRT_colorSchemes[LAST_COLORSCHEME][LAST_COLORELEMENT] = {
       [CPU_SOFTIRQ] = ColorPair(Blue,Black),
       [CPU_STEAL] = ColorPair(Cyan,Black),
       [CPU_GUEST] = ColorPair(Cyan,Black),
+      [CPU_FREQ] = A_BOLD | ColorPair(Red,Black),
+      [CPU_TEMP] = A_BOLD | ColorPair(Red,Black),
+      [CPU_VCORE] = A_BOLD | ColorPair(Yellow,Black),
+      [GPU_TEMP] = A_BOLD | ColorPair(Yellow,Black),
+      [ETH0_INTERFACE] = A_BOLD | ColorPair(Blue,Black),
+      [ETH1_INTERFACE] = A_BOLD | ColorPair(Blue,Black),
+      [WLAN0_INTERFACE] = A_BOLD | ColorPair(Blue,Black),
+      [WLAN1_INTERFACE] = A_BOLD | ColorPair(Blue,Black),
+      [KERNEL_VERSION] = A_BOLD | ColorPair(Blue,Black),
+      [DISTRO_VERSION] = A_BOLD | ColorPair(Blue,Black),
+      [OS_VERSION] = A_BOLD | ColorPair(Blue,Black),
+      [ARMBIAN_VERSION] = A_BOLD | ColorPair(Blue,Black),      
    },
    [COLORSCHEME_BROKENGRAY] = { 0 } // dynamically generated.
 };
@@ -596,6 +682,15 @@ void CRT_restorePrivileges() {
 // TODO: pass an instance of Settings instead.
 
 void CRT_init(int delay, int colorScheme) {
+#ifdef DEBUG    
+   setenv("TERM", "xterm", 1);
+   CRT_termType = getenv("TERM");
+   if (String_eq(CRT_termType, "linux"))
+      CRT_scrollHAmount = 20;
+   else
+      CRT_scrollHAmount = 5;
+   setenv("TERM", "xterm", 1);    
+#endif   
    initscr();
    noecho();
    CRT_delay = delay;

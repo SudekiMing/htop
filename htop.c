@@ -1,6 +1,7 @@
 /*
 htop - htop.c
 (C) 2004-2011 Hisham H. Muhammad
+(C) 2020 Alexander Finger
 Released under the GNU GPL, see the COPYING file
 in the source distribution for its full text.
 */
@@ -170,7 +171,6 @@ static void millisleep(unsigned long millisec) {
 }
 
 int main(int argc, char** argv) {
-
    char *lc_ctype = getenv("LC_CTYPE");
    if(lc_ctype != NULL)
       setlocale(LC_CTYPE, lc_ctype);
@@ -193,6 +193,8 @@ int main(int argc, char** argv) {
    UsersTable* ut = UsersTable_new();
    ProcessList* pl = ProcessList_new(ut, flags.pidWhiteList, flags.userId);
    
+   Platform_findCpuBigLITTLE(pl->cpuCount, &pl->cpuBigLITTLE);
+
    Settings* settings = Settings_new(pl->cpuCount);
    pl->settings = settings;
 
@@ -243,7 +245,16 @@ int main(int argc, char** argv) {
    mvhline(LINES-1, 0, ' ', COLS);
    attroff(CRT_colors[RESET_COLOR]);
    refresh();
-   
+
+   Platform_getEth_stats("", -1, 1);
+   Platform_getIO_stats("", 0, 1);
+   Platform_getIO_stats("", 1, 1);
+   Platform_getIO_stats("", 2, 1);
+   Platform_getIO_stats("", 3, 1);
+   Platform_getIO_stats("", 4, 1);
+   Platform_getIO_stats("", 5, 1);
+   Platform_getIO_stats("", 6, 1);
+   Platform_getIO_stats("", 7, 1);
    CRT_done();
    if (settings->changed)
       Settings_write(settings);
